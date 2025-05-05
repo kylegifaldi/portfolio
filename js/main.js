@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from "../jsm/controls/OrbitControls.js";
+import { OrbitControls } from "jsm/controls/OrbitControls.js";
 import { ControlCenter } from './ControlCenter.js';
 import { ProjectScreens } from './ProjectScreens.js';
 import {  createStarField, updateShootingStars, createShootingStars } from './SpaceTheme.js';
