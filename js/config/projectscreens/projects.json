@@ -2,25 +2,25 @@
     { 
         "title": "UFO Product Page", 
         "url": "https://ufofileorganizer.com/", 
-        "videoUrl": "../../../assets/video/ufo-product-page.mp4",
+        "videoUrl": "../../../portfolio/assets/video/ufo-product-page.mp4",
         "description": "A product page for the Universal File Organizer (UFO) that showcases its features, benefits, and user testimonials, designed to convert visitors into customers."
     },
     { 
         "title": "Chromium Tabs", 
         "url": "https://kylegifaldi.github.io/ufo-angular-components/", 
-        "videoUrl": "../../../assets/video/tabs-demo.mp4",
+        "videoUrl": "../../../portfolio/assets/video/tabs-demo.mp4",
         "description": "A component library for Angular that provides a set of reusable UI components, including buttons, forms, and modals, designed to enhance user experience and streamline development."
     },
     { 
         "title": "Textbook SummarAIzer", 
         "url": "https://github.com/kylegifaldi/textbook-summarAIzer-ui", 
-        "videoUrl": "../../../assets/video/summaraizer.mp4",
+        "videoUrl": "../../../portfolio/assets/video/summaraizer.mp4",
         "description": "A web application that uses AI to summarize textbook content, making it easier for students to grasp key concepts and save time on studying."
     },
     { 
         "title": "Universal File Organizer (U.F.O.)", 
         "url": "https://ufofileorganizer.com/", 
-        "videoUrl": "../../../assets/video/preview-and-dynamically-add-new-conditions.mp4",
+        "videoUrl": "../../../portfolio/assets/video/preview-and-dynamically-add-new-conditions.mp4",
         "description": "Universal File Organizer (a Windows File Organizer Desktop Application) empowers you with job-based file organization, providing unparalleled control over your digital files."
     }
 ]

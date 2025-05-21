@@ -346,12 +346,12 @@ class ProjectScreens {
             
             // Try jpg first, then png, then fallback
             skillImage.onerror = function() {
-                skillImage.src = `./assets/img/skills/${skillName}.png`;
+                skillImage.src = `./portfolio/assets/img/skills/${skillName}.png`;
                 
                 // Second error handler for png fallback
                 skillImage.onerror = function() {
                     console.error(`Failed to load image for skill: ${skillName}`);
-                    skillImage.src = `./assets/img/skills/code.png`; // Generic code icon as fallback
+                    skillImage.src = `./portfolio/assets/img/skills/code.png`; // Generic code icon as fallback
                 };
             };
             
@@ -372,7 +372,7 @@ class ProjectScreens {
             };
             
             // Start loading the image
-            skillImage.src = `./assets/img/skills/${skillName}.jpg`;
+            skillImage.src = `./portfolio/assets/img/skills/${skillName}.jpg`;
             
             // Add skill name as text below
             const textCanvas = document.createElement('canvas');

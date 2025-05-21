@@ -1,8 +1,8 @@
 [
     { 
         "title": "Resume", 
-        "url": "../../../assets/pdf/resume.pdf",
-        "document": "../../../assets/pdf/resume.pdf",
+        "url": "../../../portfolio/assets/pdf/resume.pdf",
+        "document": "../../../portfolio/assets/pdf/resume.pdf",
         "type": "pdf",
         "description": "Download my resume to learn more about my skills and experience."
     }
