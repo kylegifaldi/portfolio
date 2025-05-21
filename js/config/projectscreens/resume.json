@@ -1,0 +1,9 @@
+[
+    { 
+        "title": "Resume", 
+        "url": "../../../assets/pdf/resume.pdf",
+        "document": "../../../assets/pdf/resume.pdf",
+        "type": "pdf",
+        "description": "Download my resume to learn more about my skills and experience."
+    }
+]

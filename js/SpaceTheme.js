@@ -1,12 +1,34 @@
 import * as THREE from 'three';
-// Global variables for shooting stars
+
+// ---------------
+// GLOBAL VARIABLES
+// ---------------
 let shootingStars = [];
 let shootingStarsGroup = null;
 const maxShootingStars = 50; // Maximum number of shooting stars visible at once
 
+// ---------------
+// HELPER FUNCTIONS
+// ---------------
+function lightenColor(hex, amount) {
+    const r = Math.min(255, ((hex >> 16) & 0xff) + 255 * amount);
+    const g = Math.min(255, ((hex >> 8) & 0xff) + 255 * amount);
+    const b = Math.min(255, (hex & 0xff) + 255 * amount);
+    return (r << 16) | (g << 8) | b;
+}
 
+function darkenColor(hex, amount) {
+    const r = Math.max(0, ((hex >> 16) & 0xff) - 255 * amount);
+    const g = Math.max(0, ((hex >> 8) & 0xff) - 255 * amount);
+    const b = Math.max(0, (hex & 0xff) - 255 * amount);
+    return (r << 16) | (g << 8) | b;
+}
+
+// ---------------
+// STAR FIELD
+// ---------------
 export function createStarField(scene) {
-    const starCount = 50000;
+    const starCount = 10000;
     const starField = new THREE.Group();
     
     // Create star geometry and materials
@@ -44,12 +66,10 @@ export function createStarField(scene) {
     
     // Create stars at random positions
     for (let i = 0; i < starCount; i++) {
-        var radius = 100; // Far away
+        const radius = 100 - 50 * Math.random(); // Far away with random offset
         const theta = Math.random() * Math.PI * 2;
         const phi = Math.random() * Math.PI;
         
-        const offset = 50 * Math.random(); // Random offset for distribution
-        radius = radius - offset;
         const x = radius * Math.sin(phi) * Math.cos(theta);
         const y = radius * Math.sin(phi) * Math.sin(theta);
         const z = radius * Math.cos(phi);
@@ -81,6 +101,9 @@ export function createStarField(scene) {
     return starField;
 }
 
+// ---------------
+// PLANETS
+// ---------------
 export function createDistantPlanets(scene) {
     const planetGroup = new THREE.Group();
     
@@ -226,21 +249,9 @@ export function createDistantPlanets(scene) {
     return planetGroup;
 }
 
-// Helper functions for color manipulation
-function lightenColor(hex, amount) {
-    const r = Math.min(255, ((hex >> 16) & 0xff) + 255 * amount);
-    const g = Math.min(255, ((hex >> 8) & 0xff) + 255 * amount);
-    const b = Math.min(255, (hex & 0xff) + 255 * amount);
-    return (r << 16) | (g << 8) | b;
-}
-
-function darkenColor(hex, amount) {
-    const r = Math.max(0, ((hex >> 16) & 0xff) - 255 * amount);
-    const g = Math.max(0, ((hex >> 8) & 0xff) - 255 * amount);
-    const b = Math.max(0, (hex & 0xff) - 255 * amount);
-    return (r << 16) | (g << 8) | b;
-}
-
+// ---------------
+// NEBULA
+// ---------------
 export function createNebula(scene) {
     // Create particle clouds for nebula effect
     const nebulaGroup = new THREE.Group();
@@ -332,9 +343,9 @@ export function createNebula(scene) {
     return nebulaGroup;
 }
 
-
-// Modify the createShootingStar function to add a streak tail
-
+// ---------------
+// SHOOTING STARS
+// ---------------
 function createShootingStar() {
     // Start position
     const startRadius = 100;
@@ -513,8 +524,6 @@ export function createShootingStars(scene) {
     return shootingStarsGroup;
 }
 
-// Update the updateShootingStars function to animate the streak and sparkles
-
 export function updateShootingStars() {
     // Check if we need to create new shooting stars
     if (shootingStars.length < maxShootingStars && Math.random() < 0.005) {
@@ -618,4 +627,46 @@ export function updateShootingStars() {
             });
         }
     }
+}
+
+// ---------------
+// NEBULAS (FOR MULTIPLE NEBULA CLOUDS)
+// ---------------
+export function createNebulas(scene) {
+    const nebulaGroup = new THREE.Group();
+    
+    // Create multiple nebulas at different positions
+    const nebulaCount = 3 + Math.floor(Math.random() * 3); // 3-5 nebulas
+    
+    for (let i = 0; i < nebulaCount; i++) {
+        const nebula = createNebula(scene);
+        nebula.position.set(
+            (Math.random() - 0.5) * 300,
+            (Math.random() - 0.5) * 300,
+            (Math.random() - 0.5) * 300
+        );
+        nebula.scale.set(
+            0.5 + Math.random() * 1.5,
+            0.5 + Math.random() * 1.5,
+            0.5 + Math.random() * 1.5
+        );
+        nebulaGroup.add(nebula);
+    }
+    
+    scene.add(nebulaGroup);
+    return nebulaGroup;
+}
+
+// ---------------
+// ANIMATION UPDATES
+// ---------------
+export function updateNebulas(nebulas, deltaTime) {
+    if (!nebulas) return;
+    
+    // Gently rotate each nebula
+    nebulas.children.forEach((nebula, i) => {
+        nebula.rotation.y += 0.00005 * deltaTime * (1 + i * 0.2);
+        nebula.rotation.x += 0.00003 * deltaTime * (1 + i * 0.1);
+        nebula.rotation.z += 0.00002 * deltaTime * (1 + i * 0.15);
+    });
 }

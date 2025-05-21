@@ -1,0 +1,22 @@
+[
+    {
+        "category": "Languages",
+        "skills": ["C++", "Java", "JavaScript", "TypeScript", "Python", "HTML/CSS", "Node.js"]
+    },
+    {
+        "category": "Databases",
+        "skills": ["SQL", "MySQL", "MongoDB"]
+    },
+    {
+        "category": "Front-End",
+        "skills": ["Angular", "Angular Material", "Bootstrap", "PrimeNG", "RxJS", "HTML", "CSS", "Three JS"]
+    },
+    {
+        "category": "DevOps",
+        "skills": ["Kubernetes", "Docker", "Jenkins", "Microsoft Azure"]
+    },
+    {
+        "category": "Frameworks",
+        "skills": ["Spring Boot", "Flask", "Electron JS"]
+    }
+]

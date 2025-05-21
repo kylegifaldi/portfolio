@@ -69,7 +69,7 @@ class ControlCenter {
                 inner: 0xffff00,
                 core: 0xffffff
             },
-            'work': {
+            'skills': {
                 outer: 0x66ff66,
                 middle: 0x00cc88,
                 inner: 0x00ffaa,
@@ -90,7 +90,7 @@ class ControlCenter {
         let outerGeometry;
         
         switch(this.options.type) {
-            case 'work':
+            case 'skills':
                 // More structured, professional look
                 outerGeometry = new THREE.OctahedronGeometry(1, 1);
                 break;
@@ -120,7 +120,7 @@ class ControlCenter {
         let middleGeometry;
         
         switch(this.options.type) {
-            case 'work':
+            case 'skills':
                 middleGeometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
                 break;
             case 'resume':
@@ -147,7 +147,7 @@ class ControlCenter {
         let innerGeometry;
         
         switch(this.options.type) {
-            case 'work':
+            case 'skills':
                 innerGeometry = new THREE.TetrahedronGeometry(0.6, 0);
                 break;
             case 'resume':
@@ -189,7 +189,7 @@ class ControlCenter {
         let colors;
         
         switch(this.options.type) {
-            case 'work':
+            case 'skills':
                 colors = [0x66ff66, 0x44cc44, 0x22aa22, 0x33dd33, 0x55ee55];
                 break;
             case 'resume':
@@ -212,7 +212,7 @@ class ControlCenter {
             let pointGeometry;
             
             switch(this.options.type) {
-                case 'work':
+                case 'skills':
                     pointGeometry = new THREE.BoxGeometry(0.15, 0.15, 0.15);
                     break;
                 case 'resume':
@@ -254,8 +254,8 @@ class ControlCenter {
         // Create a canvas for the text
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = 500;
-        canvas.height = 74;
+        canvas.width = 600;
+        canvas.height = 114;
         
         // Set background to transparent
         ctx.fillStyle = 'rgba(0, 0, 0, 0)';
@@ -264,7 +264,7 @@ class ControlCenter {
         // Style text based on type
         let textColor;
         switch(this.options.type) {
-            case 'work':
+            case 'skills':
                 textColor = '#66ff66';
                 break;
             case 'resume':
@@ -277,7 +277,7 @@ class ControlCenter {
         }
         
         // Draw text
-        ctx.font = 'bold 64px Roboto';
+        ctx.font = 'bold 64px monospace';
         ctx.fillStyle = textColor;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -328,6 +328,8 @@ class ControlCenter {
             }
         }
     }
+
+
     
     // Replace the transition logic in your update method with this improved version
 update(camera) {
